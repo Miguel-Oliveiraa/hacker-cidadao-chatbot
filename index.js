@@ -80,12 +80,12 @@ client.on("qr", (qr) => {
 });
 
 client.on("message_create", async (message) => {
-  if (message.body.startsWith("!")) {
+  if (message.from == "558195088023@c.us") {
     const telefone = message.from.split("@")[0];
     // Example usage
     const dataset = data.find((parent) => parent.telefone === telefone);
     // const response = completion.choices[0].message.content;
-    const response = await answerQuestion(message.body.split("!")[1], dataset);
+    const response = await answerQuestion(message.body, dataset);
     // send back "pong" to the chat the message was sent in
     client.sendMessage(message.from, response);
   }
