@@ -100,8 +100,8 @@ async function answerQuestion(question, dataset) {
       model: "gpt-4o-mini",
       messages: [
         {
-          role: "system",
-          content: `Responda as perguntas do usuario (chame-o pelo nome, que esta no campo "Nome"), sobre escolas e creches com base no contexto abaixo, caso ele pergunte como matricular o filho em uma escola ou creche responda com "📌 Como fazer a matrícula em uma escola ou creche municipal do Recife? \n\n Para matricular seu filho, acesse o portal Matrícula Online Recife através do site \n\n 👉 https://matriculaonline.recife.pe.gov.br \n\n Lá, você pode verificar a disponibilidade de vagas e obter informações atualizadas sobre todo o processo. ✅📚", e se a pergunta não puder ser respondida diga "Desculpe, eu ainda não sei responder isso. Teria outra coisa que eu posso ajudar? 🙂"\n\nContexto: ${context}\n\n---\n\nPergunta: ${question}\nResposta:`,
+          role: "user",
+          content: `Responda as perguntas do usuario (chame-o pelo nome, que esta no campo "Nome"), sobre escolas e creches com base no json abaixo, caso ele pergunte como matricular o filho em uma escola ou creche responda com "📌 Como fazer a matrícula em uma escola ou creche municipal do Recife? \n\n Para matricular seu filho, acesse o portal Matrícula Online Recife através do site \n\n 👉 https://matriculaonline.recife.pe.gov.br \n\n Lá, você pode verificar a disponibilidade de vagas e obter informações atualizadas sobre todo o processo. ✅📚", e se a pergunta não puder ser respondida com os dados do json diga "Desculpe, eu ainda não sei responder isso. Teria outra coisa que eu posso ajudar? 🙂"\n\nContexto: ${context}\n\n---\n\nPergunta: ${question}\nResposta:`,
         },
       ],
     });
